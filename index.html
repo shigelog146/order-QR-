@@ -15,61 +15,62 @@ body {
   background: #fff0f5;
   color: #4b2e2e;
   padding: 16px;
-  font-size: 18px;
+  font-size: 20px; /* ←大きく */
+  line-height: 1.6;
 }
 
 /* タイトル */
 h1 {
   text-align: center;
-  font-size: 28px;
+  font-size: 32px; /* ←大きく */
   color: #d86c9b;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 /* フォーム */
 form {
   background: #ffffff;
-  max-width: 600px;
+  max-width: 650px; /* ←少し広めに */
   margin: 0 auto 40px;
-  padding: 20px;
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(216, 108, 155, 0.2);
+  padding: 24px;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(216, 108, 155, 0.25);
 }
 
 /* ラベル */
 label {
   display: block;
-  margin-top: 16px;
+  margin-top: 18px;
   font-weight: bold;
   color: #d86c9b;
-  font-size: 18px;
+  font-size: 20px; /* ←大きく */
 }
 
 /* セレクト・テキストエリア */
 select,
 textarea {
   width: 100%;
-  padding: 14px;
+  padding: 16px; /* ←タップしやすく */
   border: 1px solid #ccc;
-  border-radius: 10px;
-  margin-top: 8px;
-  font-size: 18px;
-  min-height: 48px;
+  border-radius: 12px;
+  margin-top: 10px;
+  font-size: 20px; /* ←大きく */
+  min-height: 52px;
 }
 
 textarea {
-  height: 100px;
+  height: 120px; /* ←広げる */
 }
 
 /* ボタン */
 button {
-  margin-top: 24px;
-  padding: 18px;
+  margin-top: 28px;
+  padding: 22px; /* ←タップしやすく */
   background: #d86c9b;
   border: none;
-  border-radius: 12px;
+  border-radius: 14px;
   color: white;
-  font-size: 20px;
+  font-size: 22px; /* ←大きく */
   font-weight: bold;
   cursor: pointer;
   width: 100%;
@@ -84,14 +85,15 @@ button:disabled {
 .menu-container {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
 }
 
 .menu-item {
   position: relative;
   width: 100%;
   overflow: hidden;
-  border-radius: 16px;
+  border-radius: 18px;
+  box-shadow: 0 4px 16px rgba(216, 108, 155, 0.25); /* ←影追加 */
 }
 
 .menu-item img {
@@ -102,43 +104,55 @@ button:disabled {
 
 .menu-select {
   position: relative;
-  background: rgba(255,255,255,.9);
-  padding: 14px;
+  background: rgba(255,255,255,.95);
+  padding: 16px;
 }
 
 .menu-select label {
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .menu-select select {
-  font-size: 18px;
+  font-size: 20px;
 }
 
 /* 履歴 */
 #history {
-  max-width: 600px;
+  max-width: 650px;
   margin: 0 auto;
   background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(216, 108, 155, 0.2);
-  padding: 20px;
+  border-radius: 18px;
+  box-shadow: 0 4px 20px rgba(216, 108, 155, 0.25);
+  padding: 24px;
 }
 
 #history h2 {
   text-align: center;
   color: #d86c9b;
-  font-size: 22px;
+  font-size: 24px;
 }
 
 .history-item {
   border-bottom: 1px solid #eee;
-  padding: 14px 0;
-  font-size: 16px;
+  padding: 16px 0;
+  font-size: 18px;
 }
 
 .history-time {
   color: #888;
-  font-size: 14px;
+  font-size: 16px;
+}
+
+/* スマホ最適化 */
+@media (max-width: 480px) {
+  body { font-size: 22px; } /* ←さらに大きく */
+  h1 { font-size: 30px; }
+  label, select, textarea, button {
+    font-size: 22px;
+  }
+  button {
+    padding: 24px;
+  }
 }
 
   </style>
