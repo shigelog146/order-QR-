@@ -2,131 +2,168 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+
+  <!-- ページタイトル -->
   <title>スイーツカフェ セルフオーダー（QR対応）</title>
+
   <style>
-    body {
-      font-family: 'Yu Gothic', sans-serif;
-      background: #fff0f5;
-      color: #4b2e2e;
-      padding: 20px;
-    }
-    h1 {
-      text-align: center;
-      font-size: 2em;
-      color: #d86c9b;
-    }
-    form {
-      background: #ffffff;
-      max-width: 500px;
-      margin: 0 auto 40px;
-      padding: 20px;
-      border-radius: 0px;
-      box-shadow: 0 0 10px rgba(216, 108, 155, 0.3);
-    }
-    label {
-      display: block;
-      margin-top: 0px;
-      font-weight: bold;
-      color: #d86c9b;
-    }
-    select, textarea {
-      width: 100%;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 1px;
-      margin-top: 5px;
-      font-size: 1em;
-    }
-    textarea {
-      resize: vertical;
-      height: 80px;
-    }
-    button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      background: #d86c9b;
-      border: none;
-      border-radius: 1px;
-      color: white;
-      font-size: 1em;
-      cursor: pointer;
-    }
-    button:disabled {
-      background: #f0b6d1;
-      cursor: not-allowed;
-    }
-    .menu-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
-    .menu-item {
-      position: relative;
-      width: calc(50% - 20px);
-      overflow: hidden;
-    }
-    .menu-item img {
-      width: 100%;
-      display: block;
-      border-radius: 0;
-    }
-    .menu-select {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(255,255,255,.7);
-      padding: 10px;
-      box-sizing: border-box;
-    }
-    .menu-select label,
-    .menu-select select {
-      display: block;
-      width: 100%;
-      font-size: 14px;
-      margin-bottom: 5px;
-    }
-    #history {
-      max-width: 500px;
-      margin: 0 auto;
-      background: #fff;
-      border: 1px solid #ccc;
-      border-radius: 0px;
-      box-shadow: 0 0 10px rgba(216, 108, 155, 0.2);
-      padding: 20px;
-    }
-    #history h2 {
-      text-align: center;
-      color: #d86c9b;
-    }
-    .history-item {
-      border-bottom: 1px solid #eee;
-      padding: 10px 0;
-    }
-    .history-item:last-child {
-      border-bottom: none;
-    }
-    .history-time {
-      color: #888;
-      font-size: 0.9em;
-    }
-    @media (max-width: 600px) {
-      .menu-item {
-        width: 100%;
-      }
-    }
+/* ===============================
+   全体レイアウト設定
+=============================== */
+body {
+  font-family: 'Yu Gothic', sans-serif;
+  background: #fff0f5;
+  color: #4b2e2e;
+  padding: 16px;
+  font-size: 18px;
+}
+
+/* タイトル */
+h1 {
+  text-align: center;
+  font-size: 28px;
+  color: #d86c9b;
+  margin-bottom: 20px;
+}
+
+/* フォーム */
+form {
+  background: #ffffff;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(216, 108, 155, 0.2);
+}
+
+/* ラベル */
+label {
+  display: block;
+  margin-top: 16px;
+  font-weight: bold;
+  color: #d86c9b;
+  font-size: 18px;
+}
+
+/* セレクト・テキストエリア */
+select,
+textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-top: 8px;
+  font-size: 18px;
+  min-height: 48px;
+}
+
+textarea {
+  height: 100px;
+}
+
+/* ボタン */
+button {
+  margin-top: 24px;
+  padding: 18px;
+  background: #d86c9b;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:disabled {
+  background: #f0b6d1;
+  cursor: not-allowed;
+}
+
+/* メニュー */
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.menu-item {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.menu-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.menu-select {
+  position: relative;
+  background: rgba(255,255,255,.9);
+  padding: 14px;
+}
+
+.menu-select label {
+  font-size: 18px;
+}
+
+.menu-select select {
+  font-size: 18px;
+}
+
+/* 履歴 */
+#history {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(216, 108, 155, 0.2);
+  padding: 20px;
+}
+
+#history h2 {
+  text-align: center;
+  color: #d86c9b;
+  font-size: 22px;
+}
+
+.history-item {
+  border-bottom: 1px solid #eee;
+  padding: 14px 0;
+  font-size: 16px;
+}
+
+.history-time {
+  color: #888;
+  font-size: 14px;
+}
+
   </style>
 </head>
+
 <body>
+
+  <!-- ページタイトル -->
   <h1>スイーツカフェ セルフオーダーQR</h1>
+
+  <!-- QRから取得したテーブル番号表示 -->
   <p id="tableDisplay" style="text-align:center; font-size:1.2em; color:#d86c9b;"></p>
-  
+
+  <!-- ===============================
+       注文フォーム
+  =============================== -->
   <form id="orderForm">
+
+    <!-- テーブル番号（QRから自動取得） -->
     <input type="hidden" id="table" name="table" value="">
 
+    <!-- メニュー一覧 -->
     <div class="menu-container">
-      <!-- パフェ -->
+
+      <!-- スイーツパフェ -->
       <div class="menu-item">
         <img src="images/parfait.jpg" alt="スイーツパフェ">
         <div class="menu-select">
@@ -138,6 +175,7 @@
           </select>
         </div>
       </div>
+
       <!-- スペシャルパフェ -->
       <div class="menu-item">
         <img src="images/special.jpg" alt="スペシャルパフェ">
@@ -150,6 +188,7 @@
           </select>
         </div>
       </div>
+
       <!-- スイーツプレート -->
       <div class="menu-item">
         <img src="images/plate.jpg" alt="スイーツプレート">
@@ -162,6 +201,7 @@
           </select>
         </div>
       </div>
+
       <!-- ドリンク -->
       <div class="menu-item">
         <img src="images/drink.jpg" alt="ドリンク">
@@ -176,132 +216,198 @@
           </select>
         </div>
       </div>
+
     </div>
 
+    <!-- 店への連絡欄 -->
     <label for="message">お店への連絡</label>
     <textarea id="message" name="message" placeholder="アレルギー、テーブル上の要望など"></textarea>
 
+    <!-- 送信エリア -->
     <div class="submit-row">
       <button type="submit" id="submitBtn" disabled>注文を送信</button>
       <p id="thanksMessage" style="display: none;">ご注文ありがとうございました。</p>
     </div>
+
   </form>
 
-  <!-- 注文履歴の表示部分 -->
+  <!-- ===============================
+       注文履歴表示エリア
+  =============================== -->
   <div id="history">
     <h2>注文履歴</h2>
     <div id="historyList"></div>
   </div>
 
   <script>
-  const form = document.getElementById('orderForm');
-  const submitBtn = document.getElementById('submitBtn');
 
-  const SUPABASE_URL = "https://sdgdgkolzvymvhtwccyh.supabase.co";
-  const SUPABASE_TABLE = "orders";
-  const SUPABASE_API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNkZ2Rna29senZ5bXZodHdjY3loIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI1OTkwMzEsImV4cCI6MjA1ODE3NTAzMX0.YFWg6dpsmC-msTlk9j4a8smc0TnZB2eI3l0HhF1GLH8";
+    // ===============================
+    // DOM取得
+    // ===============================
+    const form = document.getElementById('orderForm');
+    const submitBtn = document.getElementById('submitBtn');
 
-  // テーブル番号取得と表示
-  window.addEventListener('DOMContentLoaded', () => {
-    const params = new URLSearchParams(window.location.search);
-    const tableParam = params.get('table');
+    // ===============================
+    // Supabase 接続情報
+    // ===============================
+    const SUPABASE_URL = "https://sdgdgkolzvymvhtwccyh.supabase.co";
+    const SUPABASE_TABLE = "orders";
+    const SUPABASE_API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNkZ2Rna29senZ5bXZodHdjY3loIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI1OTkwMzEsImV4cCI6MjA1ODE3NTAzMX0.YFWg6dpsmC-msTlk9j4a8smc0TnZB2eI3l0HhF1GLH8";
 
-    if (tableParam) {
-      const tableInput = document.getElementById('table');
-      tableInput.value = tableParam;
-      tableInput.dispatchEvent(new Event('change'));
+    // ===============================
+    // ページ読み込み時処理
+    // URLから ?table=番号 を取得
+    // ===============================
+    window.addEventListener('DOMContentLoaded', () => {
 
-      document.getElementById('tableDisplay').textContent = `テーブル番号：${tableParam}`;
-      fetchOrderHistory(tableParam); // ✅ 履歴を取得
-    }
-  });
+      const params = new URLSearchParams(window.location.search);
+      const tableParam = params.get('table');
 
-  // フォーム入力確認
-  form.addEventListener('change', () => {
-    const hasOrder =
-      parseInt(form.parfait.value) > 0 ||
-      parseInt(form.special.value) > 0 ||
-      parseInt(form.plate.value) > 0 ||
-      form.drink.value !== "0";
-    const hasTable = form.table.value !== "";
-    submitBtn.disabled = !(hasOrder && hasTable);
-    document.getElementById('thanksMessage').style.display = 'none';
-  });
+      if (tableParam) {
 
-  // 注文送信
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
+        const tableInput = document.getElementById('table');
+        tableInput.value = tableParam;
 
-    const data = {
-      table_number: form.table.value,
-      parfait: parseInt(form.parfait.value),
-      special: parseInt(form.special.value),
-      plate: parseInt(form.plate.value),
-      drink: form.drink.value,
-      message: form.message.value.trim(),
-      created_at: new Date().toISOString()
-    };
+        // changeイベントを人工的に発火
+        tableInput.dispatchEvent(new Event('change'));
 
-    try {
-      const response = await fetch(`${SUPABASE_URL}/rest/v1/${SUPABASE_TABLE}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "apikey": SUPABASE_API_KEY,
-          "Authorization": `Bearer ${SUPABASE_API_KEY}`,
-          "Prefer": "return=minimal"
-        },
-        body: JSON.stringify(data)
-      });
+        // 画面表示
+        document.getElementById('tableDisplay').textContent =
+          `テーブル番号：${tableParam}`;
 
-      if (response.ok) {
-        alert("ご注文ありがとうございました！");
-        form.reset();
-        submitBtn.disabled = true;
-        document.getElementById('thanksMessage').style.display = 'block';
-        fetchOrderHistory(data.table_number); // ✅ 新しい注文を取得して表示
-      } else {
-        alert("送信エラーが発生しました。");
-        console.error(await response.text());
+        // 注文履歴取得
+        fetchOrderHistory(tableParam);
       }
-    } catch (error) {
-      alert("通信エラーが発生しました。");
-      console.error(error);
-    }
-  });
+    });
 
-  // 履歴取得関数
-  async function fetchOrderHistory(tableNumber) {
-    try {
-      const res = await fetch(`${SUPABASE_URL}/rest/v1/${SUPABASE_TABLE}?table_number=eq.${tableNumber}&order=created_at.desc`, {
-        headers: {
-          "apikey": SUPABASE_API_KEY,
-          "Authorization": `Bearer ${SUPABASE_API_KEY}`
+    // ===============================
+    // フォーム変更時
+    // 注文ボタン活性/非活性制御
+    // ===============================
+    form.addEventListener('change', () => {
+
+      const hasOrder =
+        parseInt(form.parfait.value) > 0 ||
+        parseInt(form.special.value) > 0 ||
+        parseInt(form.plate.value) > 0 ||
+        form.drink.value !== "0";
+
+      const hasTable = form.table.value !== "";
+
+      submitBtn.disabled = !(hasOrder && hasTable);
+
+      document.getElementById('thanksMessage').style.display = 'none';
+    });
+
+    // ===============================
+    // 注文送信処理
+    // ===============================
+    form.addEventListener('submit', async (e) => {
+
+      e.preventDefault();
+
+      const data = {
+        table_number: form.table.value,
+        parfait: parseInt(form.parfait.value),
+        special: parseInt(form.special.value),
+        plate: parseInt(form.plate.value),
+        drink: form.drink.value,
+        message: form.message.value.trim(),
+        created_at: new Date().toISOString()
+      };
+
+      try {
+
+        const response = await fetch(
+          `${SUPABASE_URL}/rest/v1/${SUPABASE_TABLE}`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "apikey": SUPABASE_API_KEY,
+              "Authorization": `Bearer ${SUPABASE_API_KEY}`,
+              "Prefer": "return=minimal"
+            },
+            body: JSON.stringify(data)
+          }
+        );
+
+        if (response.ok) {
+
+          alert("ご注文ありがとうございました！");
+
+          form.reset();
+          submitBtn.disabled = true;
+
+          document.getElementById('thanksMessage').style.display = 'block';
+
+          // 新しい注文履歴を再取得
+          fetchOrderHistory(data.table_number);
+
+        } else {
+          alert("送信エラーが発生しました。");
+          console.error(await response.text());
         }
-      });
 
-      const orders = await res.json();
-      const historyList = document.getElementById("historyList");
-      historyList.innerHTML = "";
-
-      if (orders.length === 0) {
-        historyList.innerHTML = "<p>注文履歴がありません。</p>";
-        return;
+      } catch (error) {
+        alert("通信エラーが発生しました。");
+        console.error(error);
       }
+    });
 
-      for (const order of orders) {
-        const item = document.createElement("div");
-        item.className = "history-item";
-        item.innerHTML = `
-          <div class="history-time">${new Date(order.created_at).toLocaleString()}</div>
-          <div>スイーツパフェ：${order.parfait} / スペシャルパフェ：${order.special} / スイーツプレート：${order.plate} / ドリンク：${order.drink || "なし"}</div>
-        `;
-        historyList.appendChild(item);
+    // ===============================
+    // 注文履歴取得関数
+    // ===============================
+    async function fetchOrderHistory(tableNumber) {
+
+      try {
+
+        const res = await fetch(
+          `${SUPABASE_URL}/rest/v1/${SUPABASE_TABLE}?table_number=eq.${tableNumber}&order=created_at.desc`,
+          {
+            headers: {
+              "apikey": SUPABASE_API_KEY,
+              "Authorization": `Bearer ${SUPABASE_API_KEY}`
+            }
+          }
+        );
+
+        const orders = await res.json();
+        const historyList = document.getElementById("historyList");
+
+        historyList.innerHTML = "";
+
+        if (orders.length === 0) {
+          historyList.innerHTML = "<p>注文履歴がありません。</p>";
+          return;
+        }
+
+        for (const order of orders) {
+
+          const item = document.createElement("div");
+          item.className = "history-item";
+
+          item.innerHTML = `
+            <div class="history-time">
+              ${new Date(order.created_at).toLocaleString()}
+            </div>
+            <div>
+              スイーツパフェ：${order.parfait}
+              / スペシャルパフェ：${order.special}
+              / スイーツプレート：${order.plate}
+              / ドリンク：${order.drink || "なし"}
+            </div>
+          `;
+
+          historyList.appendChild(item);
+        }
+
+      } catch (error) {
+        console.error("注文履歴の取得に失敗しました:", error);
       }
-    } catch (error) {
-      console.error("注文履歴の取得に失敗しました:", error);
     }
-  }
+
   </script>
+
 </body>
 </html>
